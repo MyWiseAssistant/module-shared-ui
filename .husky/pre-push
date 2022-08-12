@@ -1,0 +1,11 @@
+#!/bin/sh
+. "$(dirname "$0")/_/husky.sh"
+
+echo "Checking type validity..."
+npm run typescript
+
+# echo "Checking linting..."
+# npm run eslint
+
+# echo "Checking tests..."
+# npm run test

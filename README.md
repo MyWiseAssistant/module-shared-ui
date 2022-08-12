@@ -1,1 +1,1 @@
-# module-shared-ui
+# MyWiseAssistant Shared UI Librar

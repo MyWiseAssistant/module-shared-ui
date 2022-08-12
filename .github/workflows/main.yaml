@@ -1,0 +1,33 @@
+name: CI
+on: 
+push:
+  branches: [master]
+pull_request:
+  branches: [master]
+
+workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
+        with:
+          node-version: 16
+          registry-url: https://npm.pkg.github.com
+          scope: '@mywiseassistant'
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.GIT_TOKEN  }}
+      - name: Install Dependencies
+        run: npm ci --ignore-scripts
+      # - name: Tests
+      #   run: npm run test
+      - name: Typescript
+        run: npm run typescript
+      # - name: Prettier
+      #   run: npm run prettier
+      # - name: Eslint
+      #   run: npm run eslint
+      - name: Build
+        run: npm run build
