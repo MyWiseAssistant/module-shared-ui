@@ -3,7 +3,6 @@ name: Publish
 on:
   push:
     tags: ['v*']
-name: Publish Package to npmjs
 
 jobs:
   publish:
