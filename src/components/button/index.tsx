@@ -1,7 +1,7 @@
-import clsx from "clsx";
+import cx from "classnames";
 import React, { ReactChild, ReactChildren } from "react";
 
-import styles from "./button.module.scss";
+// import styles from "./button.module.scss";
 
 export enum Theme {
   PRIMARY_THEME = "primary",
@@ -51,28 +51,31 @@ const Button: React.FC<
   useAnchor,
   ...props
 }) => {
-  const buttonStyles = clsx(styles.button, className, {
-    [styles.buttonPrimary]: theme === Theme.PRIMARY_THEME,
-    [styles.buttonSecondary]: theme === Theme.SECONDARY_THEME,
-    [styles.buttonTertiary]: theme === Theme.TERTIARY_THEME,
-    [styles.buttonMonochrome]: theme === Theme.MONOCHROME_THEME,
-    [styles.buttonSmall]: scale === Size.SMALL_SIZE,
-    [styles.buttonMedium]: scale === Size.MEDIUM_SIZE,
-    [styles.buttonLarge]: scale === Size.LARGE_SIZE,
-    [styles.buttonBlock]: block,
-    [styles.buttonIconLast]: iconLast,
-    [styles.buttonLoading]: loading,
-    [styles.buttonIconOnly]: iconOnly,
-  });
-  const buttonTextStyles = clsx(styles.buttonText, {
-    srOnly: iconOnly,
-  });
+  // const buttonStyles = cx(styles.button, className, {
+  //   [styles.buttonPrimary]: theme === Theme.PRIMARY_THEME,
+  //   [styles.buttonSecondary]: theme === Theme.SECONDARY_THEME,
+  //   [styles.buttonTertiary]: theme === Theme.TERTIARY_THEME,
+  //   [styles.buttonMonochrome]: theme === Theme.MONOCHROME_THEME,
+  //   [styles.buttonSmall]: scale === Size.SMALL_SIZE,
+  //   [styles.buttonMedium]: scale === Size.MEDIUM_SIZE,
+  //   [styles.buttonLarge]: scale === Size.LARGE_SIZE,
+  //   [styles.buttonBlock]: block,
+  //   [styles.buttonIconLast]: iconLast,
+  //   [styles.buttonLoading]: loading,
+  //   [styles.buttonIconOnly]: iconOnly,
+  // });
+  const buttonTextStyles = cx(
+    // styles.buttonText,
+    {
+      srOnly: iconOnly,
+    }
+  );
 
   const buttonChildren = (
     <>
       {icon ? (
         <span
-          className={styles.buttonIcon}
+          // className={styles.buttonIcon}
           aria-hidden="true"
           style={{
             WebkitMaskImage: `url(${icon})`,
@@ -80,7 +83,13 @@ const Button: React.FC<
           }}
         ></span>
       ) : null}
-      {loading ? <span className={styles.buttonLoader}>Loading</span> : null}
+      {loading ? (
+        <span
+        // className={styles.buttonLoader}
+        >
+          Loading
+        </span>
+      ) : null}
       <span className={buttonTextStyles} aria-hidden={loading}>
         {children}
       </span>
@@ -101,7 +110,11 @@ const Button: React.FC<
     <>
       {React.createElement(
         elementType,
-        { disabled: loading, ...finalProps, className: buttonStyles },
+        {
+          disabled: loading,
+          ...finalProps,
+          // className: buttonStyles
+        },
         buttonChildren
       )}
     </>
