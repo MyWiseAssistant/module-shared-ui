@@ -1,1 +1,1 @@
-# MyWiseAssistant Shared UI Librar
+# MyWiseAssistant Shared UI Library
