@@ -1,36 +1,38 @@
 {
+  "$schema": "https://json.schemastore.org/tsconfig",
+  "display": "Node 16",
   "compilerOptions": {
     "outDir": "dist",
     "target": "es6",
-    "lib": [
-      "dom",
-      "dom.iterable",
-      "esnext"
-    ],
+    "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": true,
     "skipLibCheck": true,
-    "esModuleInterop": true,
-    "allowSyntheticDefaultImports": true,
     "strict": true,
     "forceConsistentCasingInFileNames": true,
+    "noEmit": true,
+    "esModuleInterop": true,
     "module": "esnext",
     "moduleResolution": "node",
-    "resolveJsonModule": true,
     "isolatedModules": true,
-    "noEmit": false,
     "jsx": "preserve",
+    "allowSyntheticDefaultImports": true,
+    "noImplicitAny": true,
+    "noImplicitThis": true,
+    "alwaysStrict": true,
+    "strictBindCallApply": true,
+    "strictFunctionTypes": true,
+    "strictPropertyInitialization": true,
+    "strictNullChecks": true,
+    "noFallthroughCasesInSwitch": true,
+    "noImplicitReturns": true,
+    "incremental": true,
+    "baseUrl": "./src",
+    "resolveJsonModule": true,
     "declaration": true
   },
   "include": [
-    "src"
+    "next-env.d.ts", "**/*.ts", "**/*.tsx", "next.config.js", "babel.config.js", "types.d.ts"
   ],
-  "exclude": [
-    "node_modules",
-    "dist",
-    "commitlint.config.js",
-    "jest.config.js",
-    "stylelint.config.js",
-    "_templates/**/*"
-  ],
+  "exclude": [],
   "transformIgnorePatterns": ["<rootDir>/node_modules/"]
 }
