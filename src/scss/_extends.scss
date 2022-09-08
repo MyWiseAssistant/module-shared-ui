@@ -1,0 +1,89 @@
+// vertical spacing
+%spacingTop {
+  margin-top: 30px;
+
+  @include breakpointUp($md) {
+    margin-top: 40px;
+  }
+}
+
+%spacingBottom {
+  margin-bottom: 30px;
+
+  @include breakpointUp($md) {
+    margin-bottom: 40px;
+  }
+}
+
+%spacing {
+  @extend %spacingTop;
+  @extend %spacingBottom;
+}
+
+%section {
+  margin-top: 60px;
+  @include breakpointUp($md) {
+    margin-top: 70px;
+  }
+}
+
+// fonts
+
+%zooja {
+  font: {
+    family: Zooja, Open Sans, "sans-serif";
+    weight: 400;
+  }
+}
+
+%zoojafull {
+  font: {
+    family: ZoojaFull, Open Sans, "sans-serif";
+    weight: 400;
+  }
+}
+
+// shadow
+%shadow {
+  box-shadow: 0 2px 20px 0 rgba(21, 24, 36, 0.15);
+}
+
+%shadowStrong {
+  box-shadow: 0 0px 30px 0 rgba(21, 24, 36, 0.25);
+}
+
+%heroShadow {
+  text-shadow: 1px 2px 0 rgba($color-light-grey, 70%);
+}
+
+%resetShadow {
+  box-shadow: 0 0 0 0 transparent;
+  text-shadow: 0 0 0 transparent;
+}
+
+// Lists
+%listReset {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+
+// Buttons
+%buttonReset {
+  border: none;
+  padding: 0;
+  background-color: transparent;
+  cursor: pointer;
+  outline: none;
+}
+
+// Images
+%stretchedImage {
+  position: absolute;
+  left: 0;
+  top: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}

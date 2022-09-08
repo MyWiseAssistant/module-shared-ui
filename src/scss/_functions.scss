@@ -1,0 +1,8 @@
+@function getIconBaseUrl($filename) {
+  $url: "https:#{'//'}www.haven.com/assets/icons/#{$filename}";
+  @return $url;
+}
+@function getImageUrl($path) {
+  $image: "https:#{'//'}res.cloudinary.com/mywiseassistant/image/upload/v1661799959/GrandImprovements/#{path}";
+  @return $image;
+}

@@ -1,0 +1,41 @@
+// Grid
+$containerWidth: 1330px;
+$gap: 30px;
+$columns: 12;
+$gridBreakpoints: (
+  xs: 0,
+  sm: 500px,
+  md: 800px,
+  lg: 1100px,
+  xl: 1400px,
+);
+$xs: map-get($gridBreakpoints, xs);
+$sm: map-get($gridBreakpoints, sm);
+$md: map-get($gridBreakpoints, md);
+$lg: map-get($gridBreakpoints, lg);
+$xl: map-get($gridBreakpoints, xl);
+
+$cardRadius: 4px;
+
+// Header
+$headerBreakpoint: 1150px;
+$headerShrinkBreakpoint: 1360px;
+$headerSnapBreakpoint: 501px;
+
+// Search Widget
+$searchWidgetBreakpoint: $md;
+
+// Spacing
+
+$spacingBase: 8px;
+
+// Z-Index
+$negativeZIndex: -1;
+$generalZIndex: 1;
+$dropdownZIndex: 1500;
+
+// Navigation Header
+$navMobileHeaderHeight: 80px;
+$navDesktopHeaderHeight: 80px;
+
+$systemFont: "montserrat-alternates", sans-serif;

@@ -1,0 +1,190 @@
+// Breakpints
+@mixin breakpointUp($width) {
+  @media (min-width: $width) {
+    @content;
+  }
+}
+
+@mixin breakpointDown($width) {
+  @media (max-width: ($width - 1px)) {
+    @content;
+  }
+}
+
+@mixin breakpointBtw($minWidth: $md, $maxWidth: $lg) {
+  @media (min-width: $minWidth) and (max-width: ($maxWidth - 1px)) {
+    @content;
+  }
+}
+
+@function grid($unit) {
+  @return $unit * 4px;
+}
+
+// SVG
+@mixin svgColor($color) {
+  &,
+  & path {
+    color: $color;
+    fill: $color;
+  }
+}
+
+@mixin svgTransition($timing, $basier) {
+  &,
+  & path {
+    transition: color $timing $basier, fill $timing $basier;
+  }
+}
+
+// Illustration
+@mixin illustration(
+  $offsetTop: auto,
+  $offsetRight: auto,
+  $offsetBottom: auto,
+  $offsetLeft: auto,
+  $widthCorrection: 0,
+  $heightCorrection: 0
+) {
+  position: absolute;
+  top: $offsetTop;
+  bottom: $offsetBottom;
+  left: $offsetLeft;
+  right: $offsetRight;
+  width: calc(100% - #{$widthCorrection});
+  height: calc(100% - #{$heightCorrection});
+  opacity: 0.46;
+  background-color: $decorationColor;
+}
+
+// Pargrap spacing
+@mixin paragraphSpacing($spacing: 20px) {
+  p {
+    margin: 0;
+
+    & + p {
+      margin-top: $spacing;
+    }
+  }
+}
+
+// Prevent body scroll (iOS)
+@mixin preventBodyScroll() {
+  touch-action: none;
+  -webkit-overflow-scrolling: none;
+  overflow: hidden;
+  overscroll-behavior: none;
+}
+
+// Slick Carousel style
+@mixin slickStyle() {
+  .slider {
+    :global(.slick-slider) {
+      position: relative;
+      display: block;
+      box-sizing: border-box;
+      -webkit-touch-callout: none;
+      -webkit-user-select: none;
+      -khtml-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+      -ms-touch-action: pan-y;
+      touch-action: pan-y;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    :global(.slick-list) {
+      position: relative;
+      overflow: hidden;
+      display: block;
+      margin: 0;
+      padding: 0;
+
+      &:focus {
+        outline: none;
+      }
+
+      &:global(.dragging) {
+        cursor: pointer;
+      }
+    }
+
+    :global(.slick-slider) :global(.slick-track),
+    :global(.slick-slider) :global(.slick-list) {
+      -webkit-transform: translate3d(0, 0, 0);
+      -moz-transform: translate3d(0, 0, 0);
+      -ms-transform: translate3d(0, 0, 0);
+      -o-transform: translate3d(0, 0, 0);
+      transform: translate3d(0, 0, 0);
+    }
+
+    :global(.slick-track) {
+      display: flex !important;
+      flex-direction: row;
+      gap: grid(4);
+      position: relative;
+      left: 0;
+      top: 0;
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+
+      &:before,
+      &:after {
+        content: "";
+        display: table;
+      }
+
+      &:after {
+        clear: both;
+      }
+
+      :global(.slick-loading) & {
+        visibility: hidden;
+      }
+    }
+
+    :global(.slick-slide) {
+      float: left;
+      height: 100%;
+      min-height: 1px;
+
+      [dir="rtl"] & {
+        float: right;
+      }
+
+      img {
+        display: block;
+      }
+
+      &:global(.slick-loading) img {
+        display: none;
+      }
+
+      // display: none;
+
+      &.dragging img {
+        pointer-events: none;
+      }
+
+      :global(.slick-initialized) & {
+        display: block;
+      }
+
+      :global(.slick-loading) & {
+        visibility: hidden;
+      }
+
+      :global(.slick-vertical) & {
+        display: block;
+        height: auto;
+        border: 1px solid transparent;
+      }
+    }
+
+    :global(.slick-arrow.slick-hidden) {
+      display: none;
+    }
+  }
+}
