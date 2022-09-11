@@ -16,6 +16,7 @@ export enum Size {
 }
 
 export interface ButtonProps {
+  className?: string;
   theme?: Theme;
   backgroundColor?: string;
   hoverBackgroundColor?: string;
@@ -29,6 +30,7 @@ export interface ButtonProps {
 }
 
 const Button = ({
+  className,
   theme = Theme.PRIMARY,
   size = Size.MEDIUM,
   backgroundColor = "#498b8d",
@@ -62,7 +64,7 @@ const Button = ({
   return !href ? (
     <button
       type="button"
-      className={cx(styles.button, buttonStyles)}
+      className={cx(className, styles.button, buttonStyles)}
       ref={hoverRef as LegacyRef<HTMLButtonElement>}
       style={
         theme === Theme.PRIMARY
