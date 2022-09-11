@@ -1,243 +1,59 @@
 @import "../../scss/abstracts";
 
-$colorA11yFocus: rgba($color-orange, 0.3);
-
 .button {
-  --animationTiming: 0.3s;
-  --buttonColor: transparent;
-  --buttonColorHover: transparent;
-  --buttonColorFocus: var(--buttonColorHover);
-  --buttonColorActive: var(--buttonColorHover);
-  --buttonColorDisabled: #{$color-light-grey};
-  --buttonShadow: 0 0;
-  --buttonShadowFocus: 0 0;
-  --buttonBorder: none;
-  --borderRadius: 4px;
-  --borderColor: transparent;
-  --borderColorHover: transparent;
-  --borderColorFocus: transparent;
-  --borderColorActive: transparent;
-  --borderColorDisabled: transparent;
-  --buttonTextColor: #{$color-light-grey};
-  --buttonTextColorHover: var(--buttonTextColor);
-  --buttonTextColorFocus: var(--buttonTextColor);
-  --buttonTextColorActive: var(--buttonTextColor);
-  --buttonTextColorDisabled: var(--buttonTextColor);
-  --buttonTextSize: 16px;
-  --buttonHeight: auto;
-  --buttonWidth: auto;
-  --buttonPaddingX: #{grid(4)};
-  --buttonPaddingY: 0;
-
-  box-sizing: border-box;
-  position: relative;
-  height: var(--buttonHeight);
-  width: var(--buttonWidth);
-  display: inline-flex;
-  justify-content: center;
-  align-items: center;
-  gap: 8px;
-  padding: var(--buttonPaddingY) var(--buttonPaddingX);
-  background-color: var(--buttonColor);
+  font-family: "Nunito Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: 700;
+  border: 0;
+  border-radius: 3em;
   cursor: pointer;
+  display: inline-block;
   line-height: 1;
-  font-size: var(--buttonTextSize);
-  font-weight: 600;
-  color: var(--buttonTextColor);
-  text-align: center;
-  text-decoration: none;
-  border: 2px solid var(--borderColor);
-  border-radius: var(--borderRadius);
-  box-shadow: var(--buttonShadowFocus);
-  outline: 0;
-
-  transition: background-color var(--animationTiming) ease,
-    color var(--animationTiming) ease, border-color var(--animationTiming) ease,
-    box-shadow var(--animationTiming) ease;
 }
-
-.button:hover:not(.buttonLoading) {
-  --buttonColor: var(--buttonColorHover);
-  --buttonTextColor: var(--buttonTextColorHover);
-  --borderColor: var(--borderColorHover);
+.primary {
+  border-color: transparent;
+  border-width: 2px;
+  border-style: solid;
 }
-
-.button:focus:not(.buttonLoading) {
-  --buttonColor: var(--buttonColorFocus);
-  --buttonTextColor: var(--buttonTextColorFocus);
-  --borderColor: var(--borderColorFocus);
-  --buttonShadowFocus: 0 0 0 2px #{$colorA11yFocus};
+.secondary {
+  border-width: 2px;
+  border-style: solid;
 }
-
-.button:active:not(.buttonLoading) {
-  --buttonColor: var(--buttonColorActive);
-  --buttonTextColor: var(--buttonTextColorActive);
-  --borderColor: var(--borderColorActive);
+.small {
+  font-size: 14px;
+  padding: 10px 20px;
 }
-
-.button:disabled {
-  cursor: default;
+.medium {
+  font-size: 16px;
+  padding: 10px 24px;
 }
-.button:disabled:not(.buttonLoading) {
-  --buttonColor: var(--buttonColorDisabled);
-  --buttonTextColor: var(--buttonTextColorDisabled);
-  --borderColor: var(--borderColorDisabled);
+.large {
+  font-size: 18px;
+  padding: 10px 28px;
 }
-
-// Sizes
-
-.buttonSmall {
-  --buttonTextSize: 14px;
-  --buttonPaddingX: #{grid(3)};
-  --buttonHeight: 32px;
+.radius0 {
+  border-radius: 0;
 }
-
-.buttonMedium {
-  --buttonTextSize: 14px;
-  --buttonPaddingX: #{grid(4)};
-  --buttonHeight: 40px;
+.radius1 {
+  border-radius: grid(1);
 }
-
-.buttonLarge {
-  --buttonTextSize: 16px;
-  --buttonPaddingX: #{grid(6)};
-  --buttonHeight: 48px;
+.radius2 {
+  border-radius: grid(2);
 }
-
-// Themes
-
-.buttonPrimary {
-  --buttonColor: #{$color-orange};
-  --buttonColorHover: #{$color-orange};
-  --buttonColorFocus: #{$color-orange};
-  --buttonColorActive: #{$color-orange};
-  --buttonColorDisabled: #{$color-light-grey};
-  --buttonTextColor: #{$color-light-grey};
-  --buttonTextColorHover: #{$color-light-grey};
-  --buttonTextColorFocus: #{$color-light-grey};
-  --buttonTextColorActive: #{$color-light-grey};
-  --buttonTextColorDisabled: #{$color-light-grey};
+.radius3 {
+  border-radius: grid(3);
 }
-
-.buttonSecondary {
-  --buttonColor: transparent;
-  --buttonColorHover: transparent;
-  --buttonColorFocus: transparent;
-  --buttonColorDisabled: transparent;
-  --buttonTextColor: #{$color-orange};
-  --buttonTextColorHover: #{$color-light-grey};
-  --buttonTextColorFocus: #{$color-orange};
-  --buttonTextColorActive: #{$color-orange};
-  --buttonTextColorDisabled: #{$color-light-grey};
-  --borderColor: #{$color-orange};
-  --borderColorHover: #{$color-light-grey};
-  --borderColorFocus: #{$color-orange};
-  --borderColorActive: #{$color-orange};
-  --borderColorDisabled: #{$color-light-grey};
+.radius4 {
+  border-radius: grid(4);
 }
-
-.buttonTertiary {
-  --buttonColor: transparent;
-  --buttonColorHover: transparent;
-  --buttonColorFocus: transparent;
-  --buttonColorActive: transparent;
-  --buttonColorDisabled: transparent;
-  --buttonTextColor: #{$color-orange};
-  --buttonTextColorHover: #{$color-light-grey};
-  --buttonTextColorFocus: #{$color-light-grey};
-  --buttonTextColorActive: #{$color-orange};
-  --buttonTextColorDisabled: #{$color-light-grey};
-  --borderColor: transparent;
-  --borderColorHover: transparent;
-  --borderColorFocus: transparent;
-  --borderColorActive: transparent;
-  --borderColorDisabled: transparent;
+.radius5 {
+  border-radius: grid(5);
 }
-
-// Modifiers
-
-.buttonBlock {
-  display: flex;
-  width: 100%;
+.radius6 {
+  border-radius: grid(6);
 }
-
-.buttonIconLast {
-  flex-direction: row-reverse;
+.radius7 {
+  border-radius: grid(7);
 }
-
-.buttonIconOnly {
-  --buttonPaddingX: 0;
-  --buttonPaddingY: 0;
-  --buttonWidth: var(--buttonHeight);
-}
-
-// children
-
-.buttonIcon {
-  display: block;
-  height: 17px;
-  width: 17px;
-  background-color: currentColor;
-  mask-size: contain;
-  mask-repeat: no-repeat;
-  -webkit-mask-size: contain;
-  -webkit-mask-repeat: no-repeat;
-}
-
-.buttonText {
-  transition: opacity var(--animationTiming) ease;
-}
-
-// so we can keep the button size with js…
-.buttonLoader + .buttonText {
-  opacity: 0;
-}
-
-.buttonLoader {
-  position: absolute;
-  font-size: 10px;
-  text-indent: -9999em;
-  width: 24px;
-  height: 24px;
-  border-radius: 50%;
-  background: #ffffff;
-  background: linear-gradient(
-    to right,
-    #ffffff 10%,
-    rgba(255, 255, 255, 0) 42%
-  );
-  animation: loadAnim 1.4s infinite linear;
-  transform: translateZ(0);
-  overflow: hidden;
-}
-.buttonLoader:before {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 50%;
-  height: 50%;
-  content: "";
-  background: var(--buttonTextColor);
-  border-radius: 100% 0 0 0;
-}
-.buttonLoader:after {
-  position: absolute;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
-  margin: auto;
-  width: 74%;
-  height: 74%;
-  content: "";
-  background: var(--buttonColor);
-  border-radius: 50%;
-}
-@keyframes loadAnim {
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(360deg);
-  }
+.radius8 {
+  border-radius: grid(8);
 }
