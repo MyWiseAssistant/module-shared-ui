@@ -1,6 +1,6 @@
-import React from "react";
+import React, { LegacyRef } from "react";
 import cx from "classnames";
-import useHover from "../../helpers/useHover";
+import useHover from "../../helpers/buttonUseHover";
 
 import styles from "./button.module.scss";
 
@@ -25,6 +25,7 @@ export interface ButtonProps {
   size?: Size;
   label: string;
   onClick?: () => void;
+  href?: string;
 }
 
 const Button = ({
@@ -36,30 +37,33 @@ const Button = ({
   hoverColor = "#498b8d",
   borderRadius = 2,
   label,
-  ...props
+  href,
+  onClick,
 }: ButtonProps) => {
   const [hoverRef, isHovered] = useHover();
 
-  return (
+  const buttonStyles = {
+    [styles.primary]: theme === Theme.PRIMARY,
+    [styles.secondary]: theme === Theme.SECONDARY,
+    [styles.small]: size === Size.SMALL,
+    [styles.medium]: size === Size.MEDIUM,
+    [styles.large]: size === Size.LARGE,
+    [styles.radius0]: borderRadius === 0,
+    [styles.radius1]: borderRadius === 1,
+    [styles.radius2]: borderRadius === 2,
+    [styles.radius3]: borderRadius === 3,
+    [styles.radius4]: borderRadius === 4,
+    [styles.radius5]: borderRadius === 5,
+    [styles.radius6]: borderRadius === 6,
+    [styles.radius7]: borderRadius === 7,
+    [styles.radius8]: borderRadius === 8,
+  };
+
+  return !href ? (
     <button
       type="button"
-      className={cx(styles.button, {
-        [styles.primary]: theme === Theme.PRIMARY,
-        [styles.secondary]: theme === Theme.SECONDARY,
-        [styles.small]: size === Size.SMALL,
-        [styles.medium]: size === Size.MEDIUM,
-        [styles.large]: size === Size.LARGE,
-        [styles.radius0]: borderRadius === 0,
-        [styles.radius1]: borderRadius === 1,
-        [styles.radius2]: borderRadius === 2,
-        [styles.radius3]: borderRadius === 3,
-        [styles.radius4]: borderRadius === 4,
-        [styles.radius5]: borderRadius === 5,
-        [styles.radius6]: borderRadius === 6,
-        [styles.radius7]: borderRadius === 7,
-        [styles.radius8]: borderRadius === 8,
-      })}
-      ref={hoverRef}
+      className={cx(styles.button, buttonStyles)}
+      ref={hoverRef as LegacyRef<HTMLButtonElement>}
       style={
         theme === Theme.PRIMARY
           ? {
@@ -76,10 +80,36 @@ const Button = ({
             }
           : undefined
       }
-      {...props}
+      onClick={onClick}
     >
       {label}
     </button>
+  ) : (
+    <a
+      type="button"
+      className={cx(styles.button, buttonStyles)}
+      ref={hoverRef as LegacyRef<HTMLAnchorElement>}
+      style={
+        theme === Theme.PRIMARY
+          ? {
+              backgroundColor: isHovered
+                ? hoverBackgroundColor
+                : backgroundColor,
+              color: isHovered ? hoverColor : color,
+            }
+          : theme === Theme.SECONDARY
+          ? {
+              backgroundColor: "transparent",
+              color: isHovered ? hoverBackgroundColor : backgroundColor,
+              borderColor: isHovered ? hoverBackgroundColor : backgroundColor,
+            }
+          : undefined
+      }
+      href={href}
+      onClick={onClick}
+    >
+      {label}
+    </a>
   );
 };
 

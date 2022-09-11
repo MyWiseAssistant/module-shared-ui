@@ -1,11 +1,13 @@
 import React, { useEffect, useRef, useState } from "react";
 
-type UseHoverType<T extends HTMLButtonElement> = [
+type UseHoverType<T extends HTMLButtonElement | HTMLAnchorElement> = [
   React.LegacyRef<T> | undefined,
   boolean
 ];
 
-function useHover<T extends HTMLButtonElement>(): UseHoverType<T> {
+function useHover<
+  T extends HTMLButtonElement | HTMLAnchorElement
+>(): UseHoverType<T> {
   const [value, setValue] = useState(false);
 
   const ref = useRef<T>(null);

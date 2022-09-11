@@ -9,14 +9,15 @@ export default {
   component: Button,
   // More on argTypes: https://storybook.js.org/docs/react/api/argtypes
   argTypes: {
+    theme: {
+      options: ["primary", "secondary"],
+      control: { type: "select" },
+    },
+    href: { control: "text" },
     backgroundColor: { control: "color" },
     color: { control: "color" },
     borderRadius: {
       options: [0, 1, 2, 3, 4, 5, 6, 7, 8],
-      control: { type: "select" },
-    },
-    theme: {
-      options: ["primary", "secondary"],
       control: { type: "select" },
     },
   },
