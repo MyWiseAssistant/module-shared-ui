@@ -14,7 +14,7 @@ const Container = ({
   children,
   className,
   maxWidth = "1000px",
-  backgroundColor = "white",
+  backgroundColor = "transparent",
 }: ContainerProps) => {
   const containerClassNames = cx(styles.container, className);
 
