@@ -1,6 +1,6 @@
 {
   "name": "@mywiseassistant/module-shared-ui",
-  "version": "0.1.12",
+  "version": "0.1.13",
   "description": "This is a library for MyWiseAssistant Shared UI elements",
   "author": "Lee Wiseman <leew21@hotmail.co.uk>",
   "homepage": "https://mywiseassistant.co.uk",
