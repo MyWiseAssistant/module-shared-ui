@@ -8,8 +8,8 @@ import cx from "classnames";
 export interface HeroProps {
   pageTitle: string;
   image: string;
-  height: string;
-  children: React.ReactNode;
+  height?: string;
+  children?: React.ReactNode;
 }
 
 const Hero = ({ pageTitle, image, height = "100vh", children }: HeroProps) => (
@@ -23,9 +23,7 @@ const Hero = ({ pageTitle, image, height = "100vh", children }: HeroProps) => (
     }}
   >
     {children ? (
-      <>
-        <div className={styles.homeContent}>{children}</div>
-      </>
+      <div className={styles.homeContent}>{children}</div>
     ) : (
       <div className={styles.pageTitle}>
         <h2>{pageTitle}</h2>
