@@ -1,5 +1,9 @@
 @import "../../scss/abstracts";
 
+.fullWidthContainer {
+  width: 100vw;
+}
+
 .container {
   box-sizing: border-box;
   margin-left: auto;
