@@ -1,0 +1,61 @@
+@import "../../scss/abstracts";
+
+.heroContainer {
+  box-sizing: border-box;
+  min-height: 350px;
+  width: 100%;
+  padding: grid(3);
+  background-size: cover !important;
+  background-position: 70% !important;
+  background-repeat: no-repeat !important;
+  display: flex;
+  flex-direction: row;
+  justify-content: left;
+  align-items: center;
+  color: $color-light-grey;
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    margin: 0;
+  }
+  h2 {
+    font-size: 32px;
+    line-height: 36px;
+  }
+
+  @include breakpointUp($md) {
+    padding: 90px;
+  }
+}
+
+.homeHero {
+  height: 100vh !important;
+}
+
+.homeContent {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  height: fit-content;
+  width: 90%;
+  max-width: 700px;
+  gap: grid(4);
+  margin: 0;
+  padding: 0;
+  h2 {
+    color: $color-orange;
+  }
+}
+
+.pageTitle {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  align-items: flex-end;
+  align-self: flex-end;
+}

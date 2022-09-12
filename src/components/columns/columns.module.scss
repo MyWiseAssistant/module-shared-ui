@@ -1,0 +1,58 @@
+@import "../../scss/abstracts";
+
+.columns {
+  box-sizing: border-box;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.column {
+  box-sizing: border-box;
+  padding: grid(1);
+  &.mobileOneColumn {
+    width: 100%;
+  }
+  &.mobileTwoColumns {
+    width: 50%;
+  }
+  &.mobileThreeColumns {
+    width: calc(100% / 3);
+  }
+
+  @include breakpointUp($sm) {
+    &.tabletOneColumn {
+      width: 100%;
+    }
+    &.tabletTwoColumns {
+      width: 50%;
+    }
+    &.tabletThreeColumns {
+      width: calc(100% / 3);
+    }
+    &.tabletFourColumns {
+      width: 25%;
+    }
+  }
+
+  @include breakpointUp($md) {
+    &.desktopOneColumn {
+      width: 100%;
+    }
+    &.desktopTwoColumns {
+      width: 50%;
+    }
+    &.desktopThreeColumns {
+      width: calc(100% / 3);
+    }
+    &.desktopFourColumns {
+      width: 25%;
+    }
+    &.desktopFiveColumns {
+      width: 20%;
+    }
+    &.desktopSixColumns {
+      width: calc(100% / 6);
+    }
+  }
+}
