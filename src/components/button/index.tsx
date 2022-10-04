@@ -1,8 +1,9 @@
-import React, { LegacyRef } from "react";
+import React, { Ref } from "react";
 import cx from "classnames";
 import useHover from "../../helpers/buttonUseHover";
 
 import styles from "./button.module.scss";
+import Link from "next/link";
 
 export enum Theme {
   PRIMARY = "primary",
@@ -65,7 +66,7 @@ const Button = ({
     <button
       type="button"
       className={cx(className, styles.button, buttonStyles)}
-      ref={hoverRef as LegacyRef<HTMLButtonElement>}
+      ref={hoverRef as Ref<HTMLButtonElement>}
       style={
         theme === Theme.PRIMARY
           ? {
@@ -87,31 +88,31 @@ const Button = ({
       {children}
     </button>
   ) : (
-    <a
-      type="button"
-      className={cx(styles.button, buttonStyles)}
-      ref={hoverRef as LegacyRef<HTMLAnchorElement>}
-      style={
-        theme === Theme.PRIMARY
-          ? {
-              backgroundColor: isHovered
-                ? hoverBackgroundColor
-                : backgroundColor,
-              color: isHovered ? hoverColor : color,
-            }
-          : theme === Theme.SECONDARY
-          ? {
-              backgroundColor: "transparent",
-              color: isHovered ? hoverBackgroundColor : backgroundColor,
-              borderColor: isHovered ? hoverBackgroundColor : backgroundColor,
-            }
-          : undefined
-      }
-      href={href}
-      onClick={onClick}
-    >
-      {children}
-    </a>
+    <Link href={href} onClick={onClick}>
+      <a
+        type="button"
+        className={cx(styles.button, buttonStyles)}
+        ref={hoverRef as Ref<HTMLAnchorElement>}
+        style={
+          theme === Theme.PRIMARY
+            ? {
+                backgroundColor: isHovered
+                  ? hoverBackgroundColor
+                  : backgroundColor,
+                color: isHovered ? hoverColor : color,
+              }
+            : theme === Theme.SECONDARY
+            ? {
+                backgroundColor: "transparent",
+                color: isHovered ? hoverBackgroundColor : backgroundColor,
+                borderColor: isHovered ? hoverBackgroundColor : backgroundColor,
+              }
+            : undefined
+        }
+      >
+        {children}
+      </a>
+    </Link>
   );
 };
 
