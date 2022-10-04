@@ -8,6 +8,8 @@ export interface ContainerProps {
   className?: string;
   maxWidth?: string;
   backgroundColor?: string;
+  first?: boolean;
+  last?: boolean;
 }
 
 const Container = ({
@@ -15,8 +17,13 @@ const Container = ({
   className,
   maxWidth = "1000px",
   backgroundColor = "transparent",
+  first = false,
+  last = false,
 }: ContainerProps) => {
-  const containerClassNames = cx(styles.container, className);
+  const containerClassNames = cx(styles.container, className, {
+    [styles.first]: first,
+    [styles.last]: last,
+  });
 
   return (
     <div className={styles.fullWidthContainer} style={{ backgroundColor }}>
